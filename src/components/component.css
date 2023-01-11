@@ -1,0 +1,19 @@
+.dropdown-component{
+    background-color: white;
+    margin: 0.5rem;
+    border-radius: 5px;
+    position: relative;
+
+}
+.drop-btn{
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0 1rem;
+    background-color: white;
+
+}
+p{
+    color: black;
+}
