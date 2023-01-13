@@ -12,8 +12,10 @@ export default function LandingPage({ img, buttonLable, height, width }) {
   }
 
   return (
+    <>
+    <AppHeader />
     <div className='parent_div'>
-      <AppHeader />
+
       
       <div className='second_div'>
         <img className='main-img' src={img} width={width} height={height} />
@@ -32,5 +34,6 @@ export default function LandingPage({ img, buttonLable, height, width }) {
 
       </div>
     </div>
+    </>
   )
 }

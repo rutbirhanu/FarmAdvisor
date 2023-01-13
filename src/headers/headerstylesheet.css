@@ -4,18 +4,13 @@
     background-color:#20382F ;
 }
 
-.container{
+.Container{
     display: flex;
-    flex-direction:row;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
-    height: 50px;
+    height: 50px; 
     background-color:#20382F ;
-    position: absolute;
-    top: 0;
-    left: 0;
-   
+
 }
 i{
     color: white;
@@ -68,4 +63,44 @@ hr{
 }
 .desc{
     font-style: italic;
+}
+
+.header {
+    height: 60px;
+    left: 0px;
+    top: 0px;
+    background: #20382F;
+}
+
+.logo {
+    position: absolute;
+    width: 91px;
+    height: 36px;
+    left: 20px;
+    top: 12px;
+
+}
+
+.addIcon {
+    position: absolute;
+    right: 8%;
+    top: 32.5%;
+    bottom: 32.5%;
+    color: white;
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+
+.Profile {
+    position: absolute;
+    right: 3%;
+    top: 30%;
+    bottom: 30%;
+    color: #ffffff;
+    fill: white;
+    height: 16px;
+    width: 16px;
+    border-radius: 0px;
+
 }

@@ -16,7 +16,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div>
+    <>
       <AppHeader />
       <PageSubheader title="My Profile" />
       <div className='parent_div'>
@@ -44,6 +44,6 @@ export default function ProfilePage() {
 
         </div>
       </div>
-    </div>
+    </>
   )
 }

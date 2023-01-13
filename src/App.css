@@ -1,4 +1,6 @@
-.App {
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* .App {
   text-align: center;
 }
 
@@ -36,4 +38,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
