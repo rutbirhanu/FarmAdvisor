@@ -3,7 +3,6 @@
     margin: 0.5rem;
     border-radius: 5px;
     position: relative;
-
 }
 .drop-btn{
     border: none;
@@ -16,4 +15,6 @@
 }
 p{
     color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

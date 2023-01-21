@@ -9,8 +9,8 @@ export default function HelpPage() {
   return (
     <div>
       <AppHeader />
-      <PageSubheader title="Help" />
-      <div className='parent_div'>
+      <PageSubheader title="Help"  />
+        <div className='parent_div'>
         <div className='help-content'>
 
           <h6 className='help-title' style={{"marginBottom":"2rem"}}>FAQ</h6>
@@ -20,6 +20,7 @@ export default function HelpPage() {
           <DropdownComponent number="4"/>
           <DropdownComponent number="5"/>
           <DropdownComponent number="6"/>
+          <DropdownComponent number="7"/>
         </div>
       </div>
     </div>

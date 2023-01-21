@@ -3,8 +3,9 @@ import "./homepageStyle.css"
 import { useState } from 'react'
 import CreateFarmPage from './createFarmPage'
 import AppHeader from '../headers/appheader';
+import welcome from '../image/welcome.png'
 
-export default function LandingPage({ img, buttonLable, height, width }) {
+export default function LandingPage({  buttonLable }) {
   const [openModal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -18,7 +19,7 @@ export default function LandingPage({ img, buttonLable, height, width }) {
 
       
       <div className='second_div'>
-        <img className='main-img' src={img} width={width} height={height} />
+        <img className='main-img' alt='home'src={welcome} />
 
         <h1>Welcome to Agino</h1>
         <section>
