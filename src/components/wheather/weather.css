@@ -1,0 +1,72 @@
+.weatherdiv{
+background-color: #F2F2F2;
+position: absolute;
+width: 756px;
+height: 100%; ;
+left: 345px;
+top:  5.8em;
+}
+.landscape{
+    left: 2em;
+    top: 3em;
+}
+.GDD{
+box-sizing: border-box;
+position: relative;
+width: 700px;
+height: 94px;
+left: 2em;
+/* top: 160px; */
+
+background: #FFFFFF;
+border: 1px solid #EFEFEF;
+border-radius: 9px;
+align-items: center;
+}
+.currentgdd{
+   /* 367 */
+
+
+/* 34 sp • H4 Headline */
+/* position: absolute; */
+
+}
+.ggdgoal{
+    /* position: absolute; */
+
+}
+h4{
+    width: 97px;
+    height: 40px;
+    left: 671px;
+    top: 186px;
+    
+    /* 34 sp • H4 Headline */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    /* identical to box height */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.25px;
+    
+    color: #5F676C;
+}
+/* img{
+    position: absolute;
+height: 12px;
+left: 1em;
+
+/* top: 5em; */
+
+/* background: #20382F; */
+
+/* } */
+
+span{
+    color: #20382F; 
+}

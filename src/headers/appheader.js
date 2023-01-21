@@ -1,7 +1,7 @@
 import React from 'react'
-import logo from "../image/agino_logo.png"
-import profile from "../image/profile.png"
-import add from "../image/add.png"
+import logo from "../Assets/agino_logo.png"
+import profile from "../Assets/profile.png"
+import add from "../Assets/add.png"
 import "./headerstylesheet.css"
 import { Link } from 'react-router-dom'
 

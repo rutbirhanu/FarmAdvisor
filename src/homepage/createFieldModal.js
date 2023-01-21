@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import dropdown from "../image/dropdown.png"
-import search from "../image/search.png"
+import dropdown from "../Assets/dropdown.png"
+import search from "../Assets/search.png"
 
 export default function CreateFieldModal({ toggleModal }) {
     const navigate = useNavigate()

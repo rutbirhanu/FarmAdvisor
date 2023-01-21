@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../homepageStyle.css"
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import scan from "../../image/scanner.png"
-import date from "../../image/date.png"
+import scan from "../../Assets/scanner.png"
+import date from "../../Assets/date.png"
 
 export default function SensorModal({ toggleModal }) {
     const navigate = useNavigate()
@@ -109,6 +109,5 @@ export default function SensorModal({ toggleModal }) {
                 </main>
             </div>
         </div>
-
     )
 }

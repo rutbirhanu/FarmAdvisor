@@ -4,7 +4,7 @@ import PageSubheader from './pagesubheader'
 import "./headerstylesheet.css"
 import "../homepage/homepageStyle.css"
 import { useState } from 'react'
-import dropdown from "../image/dropdown.png"
+import dropdown from "../Assets/dropdown.png"
 import "../components/component.css"
 
 export default function ProfilePage() {
@@ -39,9 +39,6 @@ export default function ProfilePage() {
 
             <div className='delete'>Delete Account</div>
           </form>
-
-
-
         </div>
       </div>
     </>

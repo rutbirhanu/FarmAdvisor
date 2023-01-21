@@ -1,0 +1,24 @@
+.addSensor {
+    position: absolute;
+    right: 10%;
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+
+.sensor {
+    position: absolute;
+    right: 5%;
+    height: 16px;
+    width: 16px;
+    border-radius: 0px;
+
+}
+
+.vl {
+    border-left: 6px solid #EFEFEF;
+    height: 42px;
+    width: 1em;
+    opacity: 0.5; 
+    /*transform: rotate(90deg); */
+}
