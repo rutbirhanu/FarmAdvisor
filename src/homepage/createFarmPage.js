@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../homepage/homepageStyle.css"
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import search from "../image/search.png"
+
 
 export default function CreateFarmPage({ toggleModal }) {
     const navigate = useNavigate()
@@ -78,8 +80,9 @@ export default function CreateFarmPage({ toggleModal }) {
                                 Please enter/ select location
                             </div>
                             <button className='search'>
-                                <i className="fa fa-search"></i>
+                                <img src={search} />
                             </button>
+                          
                         </div>
                         <Link to="/">
                             <button className='button' onClick={onsubmit}> CREATE NEW FARM</button>

@@ -3,6 +3,7 @@
     margin: 0.5rem;
     border-radius: 5px;
     position: relative;
+
 }
 .drop-btn{
     border: none;
@@ -15,6 +16,73 @@
 }
 p{
     color: black;
-    margin-top: 5px;
-    margin-bottom: 5px;
+}
+
+.parent_field_div{
+    background-color:white;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0.1rem 0.8rem;
+    height: 102px;
+    width: 100%;
+    margin: 1rem 0;
+    /* padding: 10px -3rem -0.2rem -3rem; */
+    
+}
+.first-row{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px 0 10px;
+}
+.current-GDD{
+    margin-top: 1.3rem;
+    margin-left: -3.3rem;
+   
+}
+.right-arrow{
+    float: right;
+    padding-right: 15px;
+    position: relative;
+    bottom: 6rem;
+}
+h6{
+    color: #676f75;
+    font-family: Roboto;
+    font-weight: bold;
+}
+.alert_parent_div{
+padding: 0.6rem 0 0 1.3rem;
+background-color: white;
+width: 100%;
+border-radius: 8px;
+height: 67px;
+margin: 1rem 0;
+
+}
+.alert-txt{
+    float: right;
+    margin-right:-2rem;
+    width: 100%;
+}
+.light-txt{
+    color: #979797;
+}
+.first-txt{
+    margin-bottom: -1px;
+}
+.desc{
+    color: #45484b;
+    font-style: normal;
+}
+.sensor_parent_div{
+    background-color: white;
+    width: 200px;
+    border-radius: 5px;
+    padding: 0.8rem;
+    height: 99px;
+    margin: 1rem;
+}
+.inside{
+    padding-left: 0.8rem;
+    padding-bottom:8px ;
 }

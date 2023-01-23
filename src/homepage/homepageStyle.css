@@ -1,10 +1,10 @@
 .parent_div {
-    width: 46%;
+    width: 55%;
     padding: 3rem;
     padding-top: 11vh;
-    margin-left: 27vw;
+    margin-left: 24.5vw;
     background-color: #f0f2f4;
-    height: 100vh;
+    /* height: 100vh; */
 }
 .second_div{
     margin-top: 1rem;
@@ -142,7 +142,7 @@ label{
 label{
     color: #5F676C;
 }
-.scanner, .date-img{
+.btn-img{
     border: none;
     float: right;
     margin: -2.1rem 1.2rem 0 0;
@@ -151,6 +151,11 @@ label{
 main{
     overflow: hidden;
     overflow-y: scroll;
+}
+.cala{
+    border-radius: 10px;
+    margin: 2rem;
+    
 }
 
 

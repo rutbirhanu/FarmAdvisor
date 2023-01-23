@@ -3,9 +3,11 @@ import "./homepageStyle.css"
 import { useState } from 'react'
 import CreateFarmPage from './createFarmPage'
 import AppHeader from '../headers/appheader';
-import welcome from '../image/welcome.png'
+import FieldComponent from '../components/field_component';
+import AlertComponent from '../components/alert_component';
+import SensorComponent from '../components/sensor_component';
 
-export default function LandingPage({  buttonLable }) {
+export default function LandingPage({ img, buttonLable, height, width }) {
   const [openModal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -13,14 +15,12 @@ export default function LandingPage({  buttonLable }) {
   }
 
   return (
-    <>
-    <AppHeader />
     <div className='parent_div'>
+      <AppHeader />
 
-      
       <div className='second_div'>
-        <img className='main-img' alt='home'src={welcome} />
 
+        <img className='main-img' src={img} width={width} height={height} />
         <h1>Welcome to Agino</h1>
         <section>
           <p>welcome to agin application which help you to know even i
@@ -30,11 +30,11 @@ export default function LandingPage({  buttonLable }) {
           </p>
         </section>
 
+        <SensorComponent GDD="jfskdf f"/>
         <button className='button' onClick={toggleModal}> {buttonLable}</button>
         {openModal && <CreateFarmPage toggleModal={toggleModal} />}
 
       </div>
     </div>
-    </>
   )
 }

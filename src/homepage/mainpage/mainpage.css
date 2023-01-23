@@ -1,0 +1,19 @@
+.GDD-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+h3{
+    color: #5F676C;
+}
+.GDD-container{
+    background-color: white;
+    border-radius: 5px;
+    padding-top: 11px;
+    margin: 1.6rem 0;
+}
+.sensor{
+    /* margin: 1.5rem 1rem; */
+    display: flex;
+    justify-content: space-evenly;
+}

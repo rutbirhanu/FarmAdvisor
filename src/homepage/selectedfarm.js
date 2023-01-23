@@ -3,7 +3,6 @@ import "./homepageStyle.css"
 import { useState } from 'react'
 import CreateFieldModal from './createFieldModal'
 import AppHeader from "../headers/appheader"
-import welcome from '../image/welcome.png'
 
 export default function SelectedFarmPage() {
   const [openModal, setModal] = useState();
@@ -17,10 +16,7 @@ export default function SelectedFarmPage() {
       <div className='main-div'>
         <div className='header-div'>
           <div className='image-dropdown'>
-            <img className='main-img' src={welcome}
-            // src="https://img.freepik.com/free-vector/farmer-with-animal-farm-farm-scene-cartoon-style_1308-52911.jpg?w=2000" 
-            height={45} width={45} 
-            />
+            <img className='main-img' src="https://img.freepik.com/free-vector/farmer-with-animal-farm-farm-scene-cartoon-style_1308-52911.jpg?w=2000" height={45} width={45} />
             <select className='farmname-dropdown'>
               <option>Farm Name</option>
               <option>farm2</option>

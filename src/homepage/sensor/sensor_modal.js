@@ -4,10 +4,19 @@ import "../homepageStyle.css"
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import scan from "../../image/scanner.png"
-import date from "../../image/date.png"
+import dateimg from "../../image/date.png"
+import info from "../../image/info.png"
+import Calendar from "react-calendar"
+import 'react-calendar/dist/Calendar.css';
+import moment from "moment"
+
 
 export default function SensorModal({ toggleModal }) {
     const navigate = useNavigate()
+    const [date1, setDate1] = useState(moment().toDate())
+    const [date2, setDate2] = useState(moment().toDate())
+    const [showFirstCalendar, setShowFirstCalendar] = useState(false);
+    const [showSecondCalendar, setShowSecondCalendar] = useState(false);
 
     const [values, setValues] = useState({
         serialNumber: "",
@@ -24,6 +33,19 @@ export default function SensorModal({ toggleModal }) {
             ...values, [e.target.name]: e.target.value
         }))
     }
+    const onCalendar1Change = (date1) => {
+        setDate1(date1);
+    }
+    const onCalendar2Change = (date2) => {
+        setDate2(date2);
+    }
+    const onShowFirstCalendar = () => {
+        setShowFirstCalendar(prev => !prev)
+    }
+    const onShowSecondCalendar = () => {
+        setShowSecondCalendar(prev => !prev)
+    }
+
 
     const validate = (values) => {
         const error = {}
@@ -49,10 +71,11 @@ export default function SensorModal({ toggleModal }) {
 
         }
         setFormError(validate(formValue))
+        navigate("/alertPage")
 
-        if (Object.keys(formError).length === 0 && isSubmit) {
-            navigate("/selectedFarmPage")
-        }
+        // if (Object.keys(formError).length === 0 && isSubmit) {
+        //     navigate("/alertPage")
+        // }
 
     }
 
@@ -68,40 +91,44 @@ export default function SensorModal({ toggleModal }) {
                         <div className="mb-3">
                             <label className="form-label">Serial Number</label>
                             <input type="text" className="form-control" name="serialNumber" value={values.serialNumber} onChange={onchange} placeholder="Scan or enter serial number" />
-                            <button className='scanner'>
+                            <button className='btn-img'>
                                 <img src={scan} />
                             </button>
-                            {formError.farmName && <p className='err'>{formError.farmName}</p>}
+                            {/* {formError.farmName && <p className='err'>{formError.farmName}</p>} */}
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Sensor Location</label>
                             <input type="text" className="form-control" name='sensorLocation' value={values.sensorLocation} onChange={onchange} placeholder="Search for location" />
-                            {formError.location && <p className='err'>{formError.location}</p>}
+                            {/* {formError.location && <p className='err'>{formError.location}</p>} */}
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Default GGD</label>
                             <input type="text" className="form-control" name='defaultGGD' value={values.defaultGGD} onChange={onchange} placeholder="" />
-                            {formError.location && <p className='err'>{formError.location}</p>}
+                            <button className='btn-img'><img src={info} /></button>
+                            {/* {formError.location && <p className='err'>{formError.location}</p>} */}
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Sensor Installation Date</label>
-                            <input type="text" className="form-control" name='installationDate' value={values.installationDate} onChange={onchange} placeholder="" />
-                            <button className='date-img'>
-                                <img src={date} />
+                            <input type="text" className="form-control" name='installationDate' value={moment(date1).format("MMMM Do YYYY")} onChange={onchange} placeholder="" />
+                            <button className='btn-img' onClick={onShowFirstCalendar}>
+                                <img src={dateimg} />
                             </button>
-                            {formError.location && <p className='err'>{formError.location}</p>}
+                            {showFirstCalendar && <Calendar className="cala" onChange={onCalendar1Change} value={date1} />}
+
+                            {/* {formError.location && <p className='err'>{formError.location}</p>} */}
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Last Cutting Date At This Field</label>
-                            <input type="date" className="form-control" name='cuttingDate' value={values.cuttingDate} onChange={onchange} placeholder="" />
-                            {/* <button  className='date-img'>
-                                <img src={date} />
-                            </button> */}
-                            {formError.location && <p className='err'>{formError.location}</p>}
+                            <input type="text" className="form-control" name='cuttingDate' value={moment(date2).format("MMMM Do YYYY")} onChange={onchange} placeholder="" />
+                            <button className='btn-img' onClick={onShowSecondCalendar}>
+                                <img src={dateimg} />
+                            </button>
+                            {showSecondCalendar && <Calendar className="cala" onChange={onCalendar2Change} value={date2} />}
+                            {/* {formError.location && <p className='err'>{formError.location}</p>} */}
                         </div>
 
                         <button className='button' onClick={onsubmit}> Add New Sensor</button>

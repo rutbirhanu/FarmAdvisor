@@ -3,7 +3,7 @@ import "./component.css"
 import dropdown from "../image/dropdown.png"
 import { useState } from 'react'
 
-const  DropdownComponent=({ number })=> {
+export default function DropdownComponent({ number }) {
   const [isOpen, setIsOpen] = useState(false)
   
   const toggleHelp = () => {
@@ -19,4 +19,3 @@ const  DropdownComponent=({ number })=> {
     </div>
   )
 }
-export default DropdownComponent;
