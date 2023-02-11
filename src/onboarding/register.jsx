@@ -2,31 +2,32 @@ import React from 'react'
 import { useState } from 'react'
 import dropdown from "../image/dropdown.png"
 import "./onboarding.css"
+import Input, { getCountries, getCountryCallingCode } from 'react-phone-number-input/input';
+import en from 'react-phone-number-input/locale/en.json';
+import 'react-phone-number-input/style.css';
 import AppHeader from '../headers/appheader'
 import PageSubheader from '../headers/pagesubheader'
 import logo from '../image/agino_logo.png'
 import { Link } from 'react-router-dom'
 export default function Register() {
 
-    const countryCodes = [
-        { code: "+1", label: "USA" },
-        { code: "+44", label: "UK" },
-        { code: "+33", label: "France" },
-        { code: "+251", label: "Ethiopia" },
-        { code: "+252", label: "Somalia" },
-        { code: "+253", label: "Djibouti" },
-        { code: "+249", label: "Kenya" },
-    ];
-    const [selectedCode, setSelectedCode] = useState("+1");
+
     const [phone, setPhone] = useState("");
 
-    const handleCodeChange = (event) => {
-        setSelectedCode(event.target.value);
-    };
 
     const handlePhoneChange = (event) => {
         setPhone(event.target.value);
     };
+    const CountrySelect = ({ value, onChange, labels, ...rest }) => (
+        <select {...rest} value={value} onChange={(event) => onChange(event.target.value || undefined)}>
+          <option value="">{labels.ZZ}</option>
+          {getCountries().map((country) => (
+            <option key={country} value={country}>
+              {labels[country]} + {getCountryCallingCode(country)}
+            </option>
+          ))}
+        </select>
+      );
  
     return (
       
@@ -43,18 +44,9 @@ export default function Register() {
                 <div className='second-div'>
                     <form>
                         <div>
-                            <label htmlFor="country-code"></label>
-                            <select
-                                id="country-code"
-                                value={selectedCode}
-                                onChange={handleCodeChange}
-                            >
-                                {countryCodes.map((code) => (
-                                    <option key={code.code} value={code.code}>
-                                        {code.label}    ({code.code})
-                                    </option>
-                                ))}
-                            </select>
+                            <label htmlFor="countrySelect"></label>
+                           
+                            <CountrySelect labels={en} name="countrySelect" />
                         </div>
                         <div>
                             <label htmlFor="phone"></label>
@@ -63,6 +55,7 @@ export default function Register() {
                                 id="phone"
                                 value={phone}
                                 onChange={handlePhoneChange}
+    
                                 placeholder="Enter your phone number"
                             />
                         </div>
