@@ -30,7 +30,6 @@ export default function LandingPage({ img, buttonLable, height, width }) {
           </p>
         </section>
 
-        <SensorComponent GDD="jfskdf f"/>
         <button className='button' onClick={toggleModal}> {buttonLable}</button>
         {openModal && <CreateFarmPage toggleModal={toggleModal} />}
 

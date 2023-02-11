@@ -105,10 +105,10 @@ label{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 46%;
+    width: 55%;
     padding: 2rem;
     background-color: #f0f2f4;
-    margin-left: 27vw;
+    margin-left: 24.5vw;
     height: 0vh;
 
 }

@@ -49,33 +49,43 @@ export default function SensorModal({ toggleModal }) {
 
     const validate = (values) => {
         const error = {}
-        if (values.farmName === "") {
-            error.farmName = "farm name is required"
+        if (values.serialNumber === "") {
+            error.serialNumber = "serialNumber is required"
         }
-        if (!values.location) {
-            error.location = "location is required"
+        if (values.sensorLocation === "") {
+            error.sensorLocation = "sensorLocation is required"
         }
+        if (values.defaultGGD === "") {
+            error.defaultGGD = "defaultGGD is required"
+        }
+        if (values.date1 === "") {
+            error.installationDate = "installation Date is required"
+        }
+        if (values.date2 === "") {
+            error.cuttingDate = "cutting Date is required"
+        }
+
         return error
 
     }
 
     const onsubmit = (e) => {
         e.preventDefault()
-        setSubmit(true)
         const formValue = {
             serialNumber: values.serialNumber,
             sensorLocation: values.sensorLocation,
             defaultGGD: values.defaultGGD,
-            installationDate: values.installationDate,
-            cuttingDate: values.cuttingDate
+            installationDate: values.date1,
+            cuttingDate: values.date2
 
         }
+        setSubmit(true)
         setFormError(validate(formValue))
-        navigate("/alertPage")
+        if (Object.keys(formError).length === 0 && isSubmit) {
+            navigate("/alertPage")
 
-        // if (Object.keys(formError).length === 0 && isSubmit) {
-        //     navigate("/alertPage")
-        // }
+        }
+       
 
     }
 
@@ -94,20 +104,20 @@ export default function SensorModal({ toggleModal }) {
                             <button className='btn-img'>
                                 <img src={scan} />
                             </button>
-                            {/* {formError.farmName && <p className='err'>{formError.farmName}</p>} */}
+                            {formError.serialNumber && <p className='err'>{formError.serialNumber}</p>}
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Sensor Location</label>
                             <input type="text" className="form-control" name='sensorLocation' value={values.sensorLocation} onChange={onchange} placeholder="Search for location" />
-                            {/* {formError.location && <p className='err'>{formError.location}</p>} */}
+                            {formError.sensorLocation && <p className='err'>{formError.sensorLocation}</p>}
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Default GGD</label>
                             <input type="text" className="form-control" name='defaultGGD' value={values.defaultGGD} onChange={onchange} placeholder="" />
                             <button className='btn-img'><img src={info} /></button>
-                            {/* {formError.location && <p className='err'>{formError.location}</p>} */}
+                            {formError.defaultGGD && <p className='err'>{formError.defaultGGD}</p>}
                         </div>
 
                         <div className="mb-3">
@@ -118,7 +128,7 @@ export default function SensorModal({ toggleModal }) {
                             </button>
                             {showFirstCalendar && <Calendar className="cala" onChange={onCalendar1Change} value={date1} />}
 
-                            {/* {formError.location && <p className='err'>{formError.location}</p>} */}
+                            {formError.installationDate && <p className='err'>{formError.installationDate}</p>}
                         </div>
 
                         <div className="mb-3">
@@ -128,7 +138,7 @@ export default function SensorModal({ toggleModal }) {
                                 <img src={dateimg} />
                             </button>
                             {showSecondCalendar && <Calendar className="cala" onChange={onCalendar2Change} value={date2} />}
-                            {/* {formError.location && <p className='err'>{formError.location}</p>} */}
+                            {formError.cuttingDate && <p className='err'>{formError.cuttingDate}</p>}
                         </div>
 
                         <button className='button' onClick={onsubmit}> Add New Sensor</button>

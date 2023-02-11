@@ -23,8 +23,8 @@ export default function SelectedFarmPage() {
             </select>
           </div>
         </div>
-        <span>
-          <i class="fa fa-ellipsis-v"></i>
+        <span >
+          <i class="fa fa-ellipsis-v" style={{color:"black"}}></i>
         </span>
       </div>
       <div className='parent_div'>

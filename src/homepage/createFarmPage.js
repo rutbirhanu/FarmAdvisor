@@ -22,12 +22,16 @@ export default function CreateFarmPage({ toggleModal }) {
         }))
     }
 
-    // useEffect(() => {
+    const onlocation = (e) => {
+        setValues(() => ({
+            
+        }))
+    }
+   
+    // function GoogleMap(){
+    //    
+    //   
 
-    //     if (Object.keys(formError).length === 0 && isSubmit) {
-
-    //     }
-    // }, [formError])
 
     const validate = (values) => {
         const error = {}
@@ -56,6 +60,12 @@ export default function CreateFarmPage({ toggleModal }) {
 
     }
 
+    useEffect(()=>{
+                const ifameData=document.getElementById("iframeId")
+                const lat=9.005401;
+                const lon=38.763611;
+                ifameData.src=`https://maps.google.com/maps?q=${lat},${lon}&hl=es;&output=embed`
+            })
     return (
         <div className='farmMainDiv'>
             <div className='modalContainer'>
@@ -82,6 +92,9 @@ export default function CreateFarmPage({ toggleModal }) {
                             <button className='search'>
                                 <img src={search} />
                             </button>
+                            <div>
+    //             <iframe id="iframeId" height="300rem" width="100%"></iframe>
+    //         </div>
                           
                         </div>
                         <Link to="/">
