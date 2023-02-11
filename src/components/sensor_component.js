@@ -31,22 +31,38 @@ const SensorComponent=({GDD})=> {
     ]
     return (
         <>
-             {data.map((value, key) => {
-
-        <div className='sensor_parent_div'>
-            <div className='inside' key={key}>
+        <div className='sensor_parent_div displaySensor'>
+            <div className='inside' >
                 <img src={logo} height="26" width="26" style={{marginRight:"7.5rem"}} />
             <img src={dots} style={{marginLeft:"8rem", marginTop:"-3.5rem"}} />
 
             </div>
-            <p className='first-txt'>{value.sNumber}</p>
+            <p className='first-txt'>766663</p>
             
-            <p>{value.GDD}</p>
-            
+            <p className=''>{GDD}</p>
         </div>
-})}
+
+<div className='sensor_parent_div displaySensor'>
+<div className='inside' >
+    <img src={logo} height="26" width="26" style={{marginRight:"7.5rem"}} />
+<img src={dots} style={{marginLeft:"8rem", marginTop:"-3.5rem"}} />
+
+</div>
+<p className='first-txt'>766663</p>
+
+<p className=''>{GDD}</p>
+</div>
+<div className='sensor_parent_div displaySensor'>
+            <div className='inside' >
+                <img src={logo} height="26" width="26" style={{marginRight:"7.5rem"}} />
+            <img src={dots} style={{marginLeft:"8rem", marginTop:"-3.5rem"}} />
+
+            </div>
+            <p className='first-txt'>766663</p>
+            
+            <p className=''>{GDD}</p>
+        </div>
         </>
-        
     )
 }
 

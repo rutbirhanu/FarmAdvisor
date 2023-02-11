@@ -13,7 +13,21 @@ h3{
     margin: 1.6rem 0;
 }
 .sensor{
-    /* margin: 1.5rem 1rem; */
+  
+    /* margin-left: 9%; */
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+ 
+}
+
+.newSensor{
+    margin-left: 70%;
+    /* padding-left: 1em;
+    padding-right: 1em; */
+}
+
+.displaySensor{
+    margin-left: 75%;
+    /* padding-left: 1em;
+    padding-right: 1em; */
 }

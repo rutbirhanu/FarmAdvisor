@@ -6,13 +6,12 @@ import landscape from "../../image/landscape.png"
 import SensorComponent from '../../components/sensor_component'
 import "../../components/component.css"
 import * as Icon from 'react-bootstrap-icons';
-import { Link } from 'react-router-dom';
+
 import { Forecast, Precipitation } from '../../components/wheather/Forecast'
 function PageWithStatistics() {
-    const [showSensor, setshowSensor] = useState(false);
-    const handleSensor = () => {
-        setshowSensor(current => !current) && <Icon.ChevronUp />
-    }
+
+    const [isExpanded, setIsExpanded] = useState(false);
+  
     return (
         < div>
             <AppHeader />
@@ -38,24 +37,36 @@ function PageWithStatistics() {
                     </span>
                 </div>
                 <p className='light-txt' style={{ margin: "-16px 0 0 -17px" }}>Last sensor reset: 04/03/22 (auto reset)</p>
-                <div className='sensor'>
-                    <Link to='/NewSensor'>
-                        <span className='float-right addSensor'><Icon.PlusLg /></span></Link>
-                    <span onClick={handleSensor} className='float-right sensor'><Icon.ChevronDown /></span>
-                    {showSensor && <SensorComponent />}
-                    {/* <SensorComponent/>
-                    <SensorComponent/>
-                    <SensorComponent/> */}
+                <div className=' row ms-8'>
+                    <div className='col-md-4'>
+                    <span className='float-left'>Sensor</span>
+                        <span className='float-right newSensor '><Icon.PlusLg /></span>
+                    <span className=' displaySensor' onClick={() => setIsExpanded(!isExpanded)}>
+                        {isExpanded ? (
+                            <>
+                                <Icon.ChevronUp />
+                                <>
+                                { <SensorComponent />}
+                                </>
+                                
+                            </>
+                        ) : (
+                            <>
+                                <Icon.ChevronDown />
+                            </>
+                        )}
+                    </span>
+                    </div>
                 </div>
-        
-                <div className='forecast'>
-                <Precipitation />
-                </div>
+
                 
-                <div className='forecast'>
-                <Precipitation />
-                   
-                </div>
+
+                
+                    <Precipitation />
+                
+
+                    <Precipitation />
+
             </div>
         </div>
     )
