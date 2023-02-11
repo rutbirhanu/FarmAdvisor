@@ -1,6 +1,7 @@
 import React from 'react'
 import "./homepageStyle.css"
 import { useState } from 'react'
+import  aginofirst  from '../image/agino-first.png';
 import CreateFarmPage from './createFarmPage'
 import AppHeader from '../headers/appheader';
 import FieldComponent from '../components/field_component';
@@ -20,7 +21,7 @@ export default function LandingPage({ img, buttonLable, height, width }) {
 
       <div className='second_div'>
 
-        <img className='main-img' src={img} width={width} height={height} />
+        <img className='main-img' src={aginofirst} width={width} height={height} />
         <h1>Welcome to Agino</h1>
         <section>
           <p>welcome to agin application which help you to know even i

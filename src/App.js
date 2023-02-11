@@ -9,6 +9,9 @@ import ProfilePage from './headers/profilepage';
 import HelpPage from './headers/helppage';
 import PageWithAlertandField from './homepage/mainpage/pageWithAlertandField';
 import PageWithStatistics from './homepage/mainpage/pageWithStatistics';
+import Onboarding from './onboarding/onboarding1';
+import Register from './onboarding/register';
+import Verify from './onboarding/verify';
 
 
 function App() {
@@ -24,6 +27,10 @@ function App() {
         <LandingPage img="https://img.freepik.com/free-vector/farmer-with-animal-farm-farm-scene-cartoon-style_1308-52911.jpg?w=2000" buttonLable="CREATE MY FIRST FARM"
           height={180} width={180} />
       } />
+
+      <Route path="/onboarding" element={<Onboarding />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/verify" element={<Verify />} />
       <Route path="/createFarm" element={<CreateFarmPage />} />
       <Route path="/selectedFarmPage" element={<SelectedFarmPage />} />
       <Route path="/sensorPage" element={<SensorPage />} />
@@ -31,6 +38,7 @@ function App() {
       <Route path="/helpPage" element={<HelpPage />} />
       <Route path="/alertPage" element={<PageWithAlertandField />} />
       <Route path="/statisticsPage" element={<PageWithStatistics />} />
+
     </Routes>
 
 
