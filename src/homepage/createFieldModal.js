@@ -47,6 +47,7 @@ export default function CreateFieldModal({ toggleModal }) {
         setFormError(validate(formValue))
         if (Object.keys(formError).length === 0 && isSubmit) {
             navigate("/sensorPage")
+            
 
         }
 
@@ -63,7 +64,7 @@ export default function CreateFieldModal({ toggleModal }) {
                     <form onSubmit={onsubmit}>
                         <div className="mb-3">
                             <label className="form-label">Farm</label>
-                            <img className='drop-down' src={dropdown} />
+                            <img className='drop-down' src={dropdown} style={{ marginLeft:"-4rem" }} />
                             <select className="form-control" name="farm" value={values.farm} onChange={onchange} placeholder="Select Farm" >
                                 <option>new</option>
                                 <option>another</option>
