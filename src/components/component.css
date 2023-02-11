@@ -86,3 +86,25 @@ margin: 1rem 0;
     padding-left: 0.8rem;
     padding-bottom:8px ;
 }
+
+.vl {
+    border-left: 6px solid #EFEFEF;
+    height: 42px;
+    width: 1em;
+    opacity: 0.5; 
+    /*transform: rotate(90deg); */
+}
+.addSensor {
+    /* position: absolute; */
+    right: 5%;
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+.sensor {
+left: 5rem;
+    right: 0;
+    height: 16px;
+    width: 16px;
+    border-radius: 0px;
+}
