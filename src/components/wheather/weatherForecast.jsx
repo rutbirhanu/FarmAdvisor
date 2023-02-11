@@ -62,7 +62,7 @@ Roll History { open ? <FaChevronDown /> : <FaChevronUp/> }
                             {showSensor && <Sensor/>}
                         </div>
                     </div>
-                    {/* <Forecast /> */}
+                    <Forecast />
                     <Precipitation/>
                 </div>
            
