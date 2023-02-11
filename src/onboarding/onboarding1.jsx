@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
-import './onboarding.css'
+
 import aginosmart from '../image/agino-smart.png'
 import logo from '../image/agino_logo.png'
+
 import TermsAndConditionsModal from './termsAndCond';
 const Onboarding =() =>{
     const [openModal, setModal] = useState(false);
@@ -29,6 +30,7 @@ return (
           just follow along i n't know what n't know what i am  i am writing  elcome to agino this is an application which help you to know even i
 
         </p>
+       
       </section>
       <button className='button'  onClick={toggleModal}> SIGN UP WITH AGINO</button>
       {openModal && <TermsAndConditionsModal toggleModal={toggleModal} />}

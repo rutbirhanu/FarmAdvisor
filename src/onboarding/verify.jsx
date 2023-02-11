@@ -21,7 +21,7 @@ export default function Verify() {
                     </div>
                 </div>
             </div>
-            <PageSubheader title="Sign Up" />
+            <PageSubheader title="SIGN UP" />
             <div className='parent_div'>
                 <div className='second-div'>
                     <h1>Verification Code</h1>

@@ -5,12 +5,12 @@ import "./onboarding.css"
 import Input, { getCountries, getCountryCallingCode } from 'react-phone-number-input/input';
 import en from 'react-phone-number-input/locale/en.json';
 import 'react-phone-number-input/style.css';
-import AppHeader from '../headers/appheader'
 import PageSubheader from '../headers/pagesubheader'
 import logo from '../image/agino_logo.png'
 import { Link } from 'react-router-dom'
-export default function Register() {
 
+
+export default function Register() {
 
     const [phone, setPhone] = useState("");
 
