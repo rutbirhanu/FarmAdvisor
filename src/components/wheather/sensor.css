@@ -21,3 +21,38 @@
     opacity: 0.5; 
     /*transform: rotate(90deg); */
 }
+.day-name{
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 1.5rem;
+/* line-height: 16px; */
+/* identical to box height, or 133% */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.1%;
+
+color: #20382F;
+
+}
+
+.day-date{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 1.5rem;
+/* identical to box height, or 100% */
+
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.1%;
+
+color: #979797;
+
+}
+.days-container{
+    display: flex;
+}
