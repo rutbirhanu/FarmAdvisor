@@ -11,7 +11,7 @@ import { Forecast, Precipitation } from '../../components/wheather/Forecast'
 function PageWithStatistics() {
 
     const [isExpanded, setIsExpanded] = useState(false);
-  
+
     return (
         < div>
             <AppHeader />
@@ -37,35 +37,42 @@ function PageWithStatistics() {
                     </span>
                 </div>
                 <p className='light-txt' style={{ margin: "-16px 0 0 -17px" }}>Last sensor reset: 04/03/22 (auto reset)</p>
-                <div className=' row ms-8'>
-                    <div className='col-md-4'>
-                    <span className='float-left'>Sensor</span>
-                        <span className='float-right newSensor '><Icon.PlusLg /></span>
-                    <span className=' displaySensor' onClick={() => setIsExpanded(!isExpanded)}>
+                <hr />
+                <div className=' row '>
+                    <div className='col sensorText'>
+                        <span className='float-left  '>Sensors</span>
+
+                    </div>
+                    <div className='col col-md-auto'>  <span className='float-right newSensor '><Icon.PlusLg /></span></div>
+                    <div className='col col-lg-2'> <span className=' displaySensor' onClick={() => setIsExpanded(!isExpanded)}>
                         {isExpanded ? (
                             <>
                                 <Icon.ChevronUp />
                                 <>
-                                { <SensorComponent />}
+                                    {<SensorComponent />}
                                 </>
-                                
+
                             </>
                         ) : (
                             <>
                                 <Icon.ChevronDown />
                             </>
                         )}
-                    </span>
-                    </div>
+                    </span></div>
                 </div>
 
-                
+                <hr />
+                <div className='row'>
+                    <div className='col weatherTxt'>Weather Forecast</div>
+                    <div className=' col stat'>Statistics</div>
+                </div>
+                <div className='weather' style={{fontSize:'1.5em'}}>Temperature</div>
+                <div className='stat' style={{fontSize:'1.5em'}}>Next 8 days</div>
 
-                
-                    <Precipitation />
-                
+                <Precipitation />
 
-                    <Precipitation />
+
+                <Precipitation />
 
             </div>
         </div>

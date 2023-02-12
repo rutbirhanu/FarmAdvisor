@@ -29,13 +29,13 @@ export const options = {
   responsive: true,
   interaction: {
     mode: "index",
-    intersect: false
+    intersect: true
   },
-  stacked: false,
+  stacked: true,
   plugins: {
     title: {
       display: true,
-      text: "Chart.js Line Chart - Multi Axis"
+      text: "the next 8days temperature"
     }
   },
   scales: {
@@ -51,19 +51,20 @@ export const options = {
       grid: {
         drawOnChartArea: false
       }
-    }
-    //   x: {
-    //     type: "linear" as const,
-    //     display: true,
-    //     position: "top" as const
-    //   }
+    },
+      x: {
+        type: 'linear',
+        display: true,
+        position: "top"
+
+      }
   }
 };
 
 const labels = ["January", "February", "March", "April", "May", "June", "July"];
 
 export const data = {
-  labels,
+
   datasets: [
     {
       label: "Temperature",
@@ -79,7 +80,8 @@ export const data = {
       backgroundColor: "rgba(53, 162, 235, 0.5)",
       yAxisID: "y1"
     }
-  ]
+  ],
+  labels
 };
 
 export const  Forecast =()=>{
@@ -128,6 +130,8 @@ export const  Forecast =()=>{
         </div>
     );
 }
+
+
 
 export const Precipitation =()=>{
     return(
