@@ -11,8 +11,7 @@ import PageWithStatistics from './homepage/mainpage/pageWithStatistics';
 import Onboarding from './onboarding/onboarding1';
 import Register from './onboarding/register';
 import Verify from './onboarding/verify';
-import DeleteAccount from './components/profile/delete_account';
-
+import UserComponent from './components/user_profileComponent';
 
 function App() {
 
@@ -22,7 +21,6 @@ function App() {
         <LandingPage img="https://img.freepik.com/free-vector/farmer-with-animal-farm-farm-scene-cartoon-style_1308-52911.jpg?w=2000" buttonLable="CREATE MY FIRST FARM"
           height={180} width={180} />
       } />
-
       <Route path="/" element={<Onboarding />} />
       <Route path="/register" element={<Register />} />
       <Route path="/verify" element={<Verify />} />
@@ -30,10 +28,11 @@ function App() {
       <Route path="/selectedFarmPage" element={<SelectedFarmPage />} />
       <Route path="/sensorPage" element={<SensorPage />} />
       <Route path="/profilePage" element={<ProfilePage />} />
-      <Route path="/deleteAcct" element={<DeleteAccount />} />
       <Route path="/helpPage" element={<HelpPage />} />
       <Route path="/alertPage" element={<PageWithAlertandField />} />
       <Route path="/statisticsPage" element={<PageWithStatistics />} />
+      <Route path="/userdd" element={<UserComponent />} />
+      
 
     </Routes>
 

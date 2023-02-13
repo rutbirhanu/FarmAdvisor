@@ -83,8 +83,8 @@ export default function CreateFarmPage({ toggleModal }) {
                                 <img src={search} />
                             </button>
                             <div>
-    //             <iframe id="iframeId" height="300rem" width="100%"></iframe>
-    //         </div>
+                <iframe id="iframeId" height="300rem" width="100%"></iframe>
+            </div>
                           
                         </div>
                         <Link to="/">

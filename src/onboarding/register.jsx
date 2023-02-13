@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -20,20 +21,24 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!name || !email || !password) {
+    // if (!name || !email || !password) 
+    if (!phone)
+
+    {
       setError("All fields are required");
       return;
     }
     setIsLoading(true);
     try {
-      const response = await axios.post("https://63bdda61e348cb076204aebb.mockapi.io/api/v1/users", { name, email, password });
+      // const response = await axios.post("https://63bdda61e348cb076204aebb.mockapi.io/api/v1/users", { name, email, password });
+      const response= await axios.post('https:/localhost:7086/users/signup/',{  phone })
       // check if response is successful
       if (response.status === 201) {
         console.log("Successfully saved to database");
         history("/");
       }
     } catch (error) {
-      setError("Error while saving to database");
+      setError("Error while Registering the user");
     }
     setIsLoading(false);
   };
@@ -52,7 +57,7 @@ const Register = () => {
         <div className='second-div'></div>
         <form onSubmit={handleSubmit}>
           {error && <div>{error}</div>}
-          <div>
+          {/* <div>
             <label htmlFor="name"></label>
             <input
               type="text"
@@ -71,8 +76,20 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
+          </div> */}
+
           <div>
+            <label htmlFor="phone"></label>
+            <input
+              type="phone"
+              id="phone"
+              placeholder="Enter your phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+
+          {/* <div>
             <label htmlFor="password"></label>
             <input
               type="password"
@@ -81,7 +98,7 @@ const Register = () => {
               value={password}
               onChange={(e) => setpassword(e.target.value)}
             />
-          </div>
+          </div> */}
           {isLoading ? (
             <div>saving...</div>
           ) : (

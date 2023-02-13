@@ -1,6 +1,6 @@
 const farms = async () => {
   try {
-      let response = await fetch('farm.json',{
+      let response = await fetch('https://localhost:7086/farms',{
               headers : { 
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -26,18 +26,19 @@ const farmList = async () => {
   }
 }
 
+
 const create = async (farm) => {
   try {
-    //   let response = await fetch('http://localhost:3000/api/books', {
-    //       method: 'POST',
-    //       headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json',
-    //       'Authorization': 'Bearer ' + credentials.t
-    //   },
-    //       body: JSON.stringify(book)
-    // })
-    //   return await response.json()
+      let response = await fetch('https://localhost:7086', {
+          method: 'POST',
+          headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + credentials.t
+      },
+          body: JSON.stringify(book)
+    })
+      return await response.json()
     console.log("farm", farm)
     return  await farm
 

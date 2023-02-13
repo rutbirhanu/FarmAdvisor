@@ -4,6 +4,9 @@ import profile from "../Assets/image/profile.png"
 import add from "../Assets/image/add.png"
 import "./headerstylesheet.css"
 import { Link } from 'react-router-dom'
+import * as Icon from 'react-bootstrap-icons'
+import UserComponent from '../components/user_profileComponent'
+import Popup from 'reactjs-popup';
 
 export default function AppHeader() {
   return (
@@ -19,11 +22,14 @@ export default function AppHeader() {
           </button>
               
           </Link>
-      
-          <Link to="/profilePage">
+          {/* <Link to="/userdd">
             <button className='btn'>
               <img src={profile} />
-            </button></Link>
+            </button></Link> */}
+            <span style={{fontSize:'1em',color:'white'} }>
+               <Popup trigger={<Icon.PersonFill />} position='left top'>           
+<UserComponent />
+</Popup></span>
 
         </div>
       </div>
