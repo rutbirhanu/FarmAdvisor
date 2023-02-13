@@ -3,7 +3,6 @@ import CreateFarmPage from './homepage/createFarmPage';
 import LandingPage from './homepage/landingPage';
 import { Route, Routes } from "react-router-dom"
 import SelectedFarmPage from './homepage/selectedfarm';
-import { useState } from 'react';
 import SensorPage from './homepage/sensor/sensorpage';
 import ProfilePage from './headers/profilepage';
 import HelpPage from './headers/helppage';
