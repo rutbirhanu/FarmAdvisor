@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../homepage/homepageStyle.css"
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import search from "../image/search.png"
 
