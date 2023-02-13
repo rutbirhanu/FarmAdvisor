@@ -1,4 +1,4 @@
-// import './App.css';
+
 import CreateFarmPage from './homepage/createFarmPage';
 import LandingPage from './homepage/landingPage';
 import { Route, Routes } from "react-router-dom"
@@ -15,11 +15,7 @@ import Verify from './onboarding/verify';
 
 
 function App() {
-  const [openModal, setModal] = useState(false);
 
-  const toggleModal = () => {
-    setModal(prev => !prev)
-  }
   return (
 
     <Routes>
