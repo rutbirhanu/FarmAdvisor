@@ -1,5 +1,5 @@
 import React from 'react'
-import alert from "../image/alert.png"
+import alert from "../Assets/image/alert.png"
 import "./component.css"
     
 function AlertComponent({desc , date}) {

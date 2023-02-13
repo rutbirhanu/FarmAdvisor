@@ -1,6 +1,6 @@
 import React from 'react'
 import "./component.css"
-import dropdown from "../image/dropdown.png"
+import dropdown from "../Assets/image/dropdown.png"
 import { useState } from 'react'
 
 export default function DropdownComponent({ number }) {

@@ -1,8 +1,8 @@
 import React from 'react'
 import "../homepage/homepageStyle.css"
 import "./component.css"
-import arrow from "../image/right_arrow.png"
-import topography from "../image/topography.png"
+import arrow from "../Assets/image/right_arrow.png"
+import topography from "../Assets/image/topography.png"
 
 
 export default function FieldComponent({ desc, GDD, fieldName}) {

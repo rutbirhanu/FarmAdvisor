@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AppHeader from '../../headers/appheader'
 import PageSubheader from '../../headers/pagesubheader'
 import "../homepageStyle.css"
-import landscape from "../../image/landscape.png"
+import landscape from "../../Assets/image/landscape.png"
 import SensorComponent from '../../components/sensor_component'
 import "../../components/component.css"
 import * as Icon from 'react-bootstrap-icons';

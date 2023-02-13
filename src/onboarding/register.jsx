@@ -1,29 +1,39 @@
 import React from 'react'
 import { useState } from 'react'
-import dropdown from "../image/dropdown.png"
 import "./onboarding.css"
 import Input, { getCountries, getCountryCallingCode } from 'react-phone-number-input/input';
 import en from 'react-phone-number-input/locale/en.json';
 import 'react-phone-number-input/style.css';
 import PageSubheader from '../headers/pagesubheader'
-import logo from '../image/agino_logo.png'
+import logo from '../Assets/image/agino_logo.png'
 import { Link } from 'react-router-dom'
 
 
 export default function Register() {
 
-    const [phone, setPhone] = useState("");
+    const initialState={
+        phone:" ",
+    }
 
+    const [phone, setPhone] = useState("");
+    const [code, setcode] = useState();
+
+    const handelCountryCode =(e)=>{
+        setcode({code:e.target.value || undefined});
+
+    }
 
     const handlePhoneChange = (event) => {
+        
         setPhone(event.target.value);
     };
-    const CountrySelect = ({ value, onChange, labels, ...rest }) => (
-        <select {...rest} value={value} onChange={(event) => onChange(event.target.value || undefined)}>
+
+    const CountrySelect = ({ value, labels, ...rest }) => (
+        <select {...rest}>
           <option value="">{labels.ZZ}</option>
           {getCountries().map((country) => (
             <option key={country} value={country}>
-              {labels[country]} + {getCountryCallingCode(country)}
+              {labels[country]} (+ {getCountryCallingCode(country)})
             </option>
           ))}
         </select>
@@ -46,7 +56,8 @@ export default function Register() {
                         <div>
                             <label htmlFor="countrySelect"></label>
                            
-                            <CountrySelect labels={en} name="countrySelect" />
+                            <CountrySelect
+                            onChange={handelCountryCode} labels={en} value={code} name="countrySelect" />
                         </div>
                         <div>
                             <label htmlFor="phone"></label>
@@ -55,11 +66,9 @@ export default function Register() {
                                 id="phone"
                                 value={phone}
                                 onChange={handlePhoneChange}
-    
                                 placeholder="Enter your phone number"
                             />
                         </div>
-        
                     </form>
                     <div  className='bt' style={{marginTop:'55%'}}>
                         <Link to='/verify'>

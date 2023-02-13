@@ -1,16 +1,23 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 
-import aginosmart from '../image/agino-smart.png'
-import logo from '../image/agino_logo.png'
+import aginosmart from '../Assets/image/agino-smart.png'
+import logo from '../Assets/image/agino_logo.png'
 
 import TermsAndConditionsModal from './termsAndCond';
+
 const Onboarding =() =>{
     const [openModal, setModal] = useState(false);
 
     const toggleModal = () => {
       setModal(prev => !prev)
     }
+
+    const handleScroll = (e) => {
+      const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+      if (bottom) { console.log('bottom is reached'); }
+  };
+
 return (
     <div className='parent_div' style={{backgroundColor:"#F7F7F7"}}>
     <div className='first-container'>
@@ -41,3 +48,11 @@ return (
 }
 
 export default Onboarding;
+
+
+const styles={
+  disabledButton:{
+    backgroundColor:'green',
+
+  }
+}

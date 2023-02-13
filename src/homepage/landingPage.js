@@ -1,6 +1,6 @@
 import React , { useState } from 'react'
 import "./homepageStyle.css"
-import  aginofirst  from '../image/agino-first.png';
+import  aginofirst  from '../Assets/image/agino-first.png';
 import CreateFarmPage from './createFarmPage'
 import AppHeader from '../headers/appheader';
 

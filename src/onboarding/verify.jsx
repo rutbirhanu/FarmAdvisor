@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import "./onboarding.css"
 import PageSubheader from '../headers/pagesubheader'
-import logo from '../image/agino_logo.png'
+import logo from '../Assets/image/agino_logo.png'
 import { Link } from 'react-router-dom'
 export default function Verify() {
     const [verify, setVerify] = useState("");
@@ -39,7 +39,7 @@ export default function Verify() {
                         </div>
                     </form>
                     <div  className='bt' style={{marginTop:'55%'}}>
-                        <Link to='/'>
+                        <Link to='/homepage'>
                         <button className='button' style={{ marginLeft:'3em'}}>CONTINUE</button>
                         </Link>
                     </div>

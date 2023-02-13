@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../homepage/homepageStyle.css"
 import { Link, useNavigate } from 'react-router-dom';
-import search from "../image/search.png"
+import search from "../Assets/image/search.png"
 
 
 export default function CreateFarmPage({ toggleModal }) {

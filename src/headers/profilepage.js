@@ -3,7 +3,7 @@ import AppHeader from './appheader'
 import PageSubheader from './pagesubheader'
 import "./headerstylesheet.css"
 import "../homepage/homepageStyle.css"
-import dropdown from "../image/dropdown.png"
+import dropdown from "../Assets/image/dropdown.png"
 import "../components/component.css"
 
 export default function ProfilePage() {

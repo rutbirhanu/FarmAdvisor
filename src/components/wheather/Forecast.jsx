@@ -1,5 +1,4 @@
-import React, { useState ,useEffect} from 'react';
-import Chart from 'react-google-charts';
+import React, { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
 import moment from "moment";
 import './sensor.css'
@@ -30,20 +29,22 @@ export const options = {
   responsive: true,
   interaction: {
     mode: "index",
-    intersect: true
+    intersect: false,
+    bezierCurve: false,
   },
   stacked: true,
   plugins: {
     title: {
       display: true,
-      text: "the next 8days temperature"
+      position:'bottom',
+      
     }
   },
   scales: {
     y: {
       type: "linear",
       display: true,
-      position: "left" 
+      position: "left"
     },
     y1: {
       type: "linear",
@@ -53,25 +54,21 @@ export const options = {
         drawOnChartArea: false
       }
     },
-      x: {
-  
-        display: true,
-        position: "top",
-        label: "Temperature",
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-      x1:
-      {
+    x: {
 
-      }
+      display: false,
+      position: "top",
+      borderColor: "rgb(255, 99, 132)",
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+
   }
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-// const labels =Days
-export const data = {
+const labels=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'
+]
 
+export const data = {
   datasets: [
     {
       
@@ -79,34 +76,34 @@ export const data = {
       borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
       yAxisID: "y",
-   
+
     },
     {
       label: "GDD",
+
       data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
       borderColor: "rgb(53, 162, 235)",
       backgroundColor: "rgba(53, 162, 235, 0.5)",
       yAxisID: "y1"
     }
   ],
-  labels
+labels
 };
 
 
 
-export const Precipitation =()=>{
-    return(
-        <div style={{backgroundColor:'white'}}>
-         <Days/>
-           <Line options={options} data={data} />
-        </div>
-    );
+export const Precipitation = () => {
+  return (
+    <div style={{ backgroundColor: 'white' }}>
+      <Days />
+      <Line options={options} data={data} />
+    </div>
+  );
 }
 
 
 const Days = () => {
   const [days, setDays] = useState([]);
-
   useEffect(() => {
     let next8Days = [];
     let currentDay = moment().format("MMM DD");
@@ -117,7 +114,6 @@ const Days = () => {
     }
     setDays(next8Days);
   }, []);
-
   return (
     <div className="days-container">
       {days.map((day, index) => (
