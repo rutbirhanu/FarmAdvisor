@@ -22,16 +22,7 @@ export default function CreateFarmPage({ toggleModal }) {
         }))
     }
 
-    const onlocation = (e) => {
-        setValues(() => ({
-            
-        }))
-    }
-   
-    // function GoogleMap(){
-    //    
-    //   
-
+ 
 
     const validate = (values) => {
         const error = {}
