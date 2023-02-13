@@ -11,6 +11,7 @@ import PageWithStatistics from './homepage/mainpage/pageWithStatistics';
 import Onboarding from './onboarding/onboarding1';
 import Register from './onboarding/register';
 import Verify from './onboarding/verify';
+import DeleteAccount from './components/profile/delete_account';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <Route path="/selectedFarmPage" element={<SelectedFarmPage />} />
       <Route path="/sensorPage" element={<SensorPage />} />
       <Route path="/profilePage" element={<ProfilePage />} />
+      <Route path="/deleteAcct" element={<DeleteAccount />} />
       <Route path="/helpPage" element={<HelpPage />} />
       <Route path="/alertPage" element={<PageWithAlertandField />} />
       <Route path="/statisticsPage" element={<PageWithStatistics />} />

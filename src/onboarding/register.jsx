@@ -1,82 +1,105 @@
-import React from 'react'
-import { useState } from 'react'
+
+
 import "./onboarding.css"
-import Input, { getCountries, getCountryCallingCode } from 'react-phone-number-input/input';
-import en from 'react-phone-number-input/locale/en.json';
-import 'react-phone-number-input/style.css';
+
 import PageSubheader from '../headers/pagesubheader'
 import logo from '../Assets/image/agino_logo.png'
-import { Link } from 'react-router-dom'
 
+import axios from "axios";
 
-export default function Register() {
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-    const initialState={
-        phone:" ",
+const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const history = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (!name || !email || !password) {
+      setError("All fields are required");
+      return;
     }
-
-    const [phone, setPhone] = useState("");
-    const [code, setcode] = useState();
-
-    const handelCountryCode =(e)=>{
-        setcode({code:e.target.value || undefined});
-
+    setIsLoading(true);
+    try {
+      const response = await axios.post("https://63bdda61e348cb076204aebb.mockapi.io/api/v1/users", { name, email, password });
+      // check if response is successful
+      if (response.status === 201) {
+        console.log("Successfully saved to database");
+        history("/");
+      }
+    } catch (error) {
+      setError("Error while saving to database");
     }
+    setIsLoading(false);
+  };
 
-    const handlePhoneChange = (event) => {
-        
-        setPhone(event.target.value);
-    };
-
-    const CountrySelect = ({ value, labels, ...rest }) => (
-        <select {...rest}>
-          <option value="">{labels.ZZ}</option>
-          {getCountries().map((country) => (
-            <option key={country} value={country}>
-              {labels[country]} (+ {getCountryCallingCode(country)})
-            </option>
-          ))}
-        </select>
-      );
- 
-    return (
-      
-        <div>
-            <div className='first-container'>
-                <div className='container'>
-                    <div>
-                        <img src={logo} />
-                    </div>
-                </div>
-            </div>
-            <PageSubheader title="SIGN UP" />
-            <div className='parent_div'>
-                <div className='second-div'>
-                    <form>
-                        <div>
-                            <label htmlFor="countrySelect"></label>
-                           
-                            <CountrySelect
-                            onChange={handelCountryCode} labels={en} value={code} name="countrySelect" />
-                        </div>
-                        <div>
-                            <label htmlFor="phone"></label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                value={phone}
-                                onChange={handlePhoneChange}
-                                placeholder="Enter your phone number"
-                            />
-                        </div>
-                    </form>
-                    <div  className='bt' style={{marginTop:'55%'}}>
-                        <Link to='/verify'>
-                        <button className='button' style={{ marginLeft:'3em'}}>CONTINUE</button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div>
+      <div className='first-container'>
+        <div className='container'>
+          <div>
+            <img src={logo} />
+          </div>
         </div>
-    )
-}
+      </div>
+      <PageSubheader title="SIGN UP" />
+      <div className='parent_div'>
+        <div className='second-div'></div>
+        <form onSubmit={handleSubmit}>
+          {error && <div>{error}</div>}
+          <div>
+            <label htmlFor="name"></label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              placeholder="Enter your name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="email"></label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="password"></label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setpassword(e.target.value)}
+            />
+          </div>
+          {isLoading ? (
+            <div>saving...</div>
+          ) : (
+
+
+
+            <div className='bt' style={{ marginTop: '55%' }}>
+
+              <button className='button' style={{ marginLeft: '3em' }}>CONTINUE</button>
+            </div>
+          )}
+        </form>
+      </div>
+
+
+    </div>
+  );
+};
+
+export default Register;
+
