@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React , { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../homepageStyle.css"
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import scan from "../../image/scanner.png"
 import dateimg from "../../image/date.png"
 import info from "../../image/info.png"
