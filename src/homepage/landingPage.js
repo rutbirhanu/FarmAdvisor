@@ -1,12 +1,8 @@
-import React from 'react'
+import React , { useState } from 'react'
 import "./homepageStyle.css"
-import { useState } from 'react'
 import  aginofirst  from '../image/agino-first.png';
 import CreateFarmPage from './createFarmPage'
 import AppHeader from '../headers/appheader';
-import FieldComponent from '../components/field_component';
-import AlertComponent from '../components/alert_component';
-import SensorComponent from '../components/sensor_component';
 
 export default function LandingPage({ img, buttonLable, height, width }) {
   const [openModal, setModal] = useState(false);
