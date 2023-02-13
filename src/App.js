@@ -22,7 +22,7 @@ function App() {
           height={180} width={180} />
       } />
 
-      <Route path="/" element={<Onboarding />} />
+      <Route  class path="/"  className ='app'element={<Onboarding />} />
       <Route path="/register" element={<Register />} />
       <Route path="/verify" element={<Verify />} />
       <Route path="/createFarm" element={<CreateFarmPage />} />

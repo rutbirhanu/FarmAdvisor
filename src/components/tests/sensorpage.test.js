@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import{render,screen ,cleanup} from'@testing-library/react';
-import sensorpage from "../../homepage/sensor/sensorpage"
+import sensorpage from "../../homepage/sensor/sensorpage";
 import {userEvent} from'@testing-library/user-event';
 
 test('test',()=> {expect(true).toBe(true)});
