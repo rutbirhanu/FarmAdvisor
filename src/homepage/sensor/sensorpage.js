@@ -1,10 +1,9 @@
-import React from 'react'
+import React , { useState } from 'react'
 import AppHeader from "../../headers/appheader"
 import PageSubheader from '../../headers/pagesubheader'
 import vector from "../../image/Vector (1).png"
 import "../homepageStyle.css"
 import SensorModal from './sensor_modal'
-import { useState } from 'react'
 
 export default function SensorPage() {
   const [openModal, setModal] = useState(false);
