@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-  import alert_component from"../alert_component"
+import alert_component from"../alert_component";
 import{render,screen,cleanup} from'@testing-library/react';
 import {userEvent} from'@testing-library/user-event';
 

@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import appheader from"../../headers/appheader"
+import appheader from"../../headers/appheader";
 import{render,screen,cleanup} from'@testing-library/react';
 import {userEvent} from'@testing-library/user-event';
 
