@@ -1,25 +1,14 @@
-import React ,  { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import dropdown from "../Assets/image/dropdown.png"
 import search from "../Assets/image/search.png"
+import axios from 'axios'
+import { useParams } from 'react-router-dom';
 
 export default function CreateFieldModal({ toggleModal }) {
     const navigate = useNavigate()
     const [formError, setFormError] = useState({})
     const [isSubmit, setSubmit] = useState(false)
-
-    const [values, setValues] = useState({
-        fieldName: "",
-        altitude: "",
-        farm: ""
-
-    })
-
-    const onchange = (e) => {
-        setValues(() => ({
-            ...values, [e.target.name]: e.target.value
-        }))
-    }
 
     const validate = (values) => {
         const errors = {}
@@ -35,18 +24,52 @@ export default function CreateFieldModal({ toggleModal }) {
         return errors
     }
 
-    const onsubmit = (e) => {
+    const [fieldName, setFieldName] = useState('');
+    const [altitude, setAltitude] = useState('');
+
+    const [farm, setFarm] = useState({});
+    //   const { farmName } = useParams();
+
+    //   useEffect(() => {
+    //     fetch(`https://63bdda61e348cb076204aebb.mockapi.io/api/v1/createFarm/`)
+    //       .then(response => response.json())
+    //       .then(data => setFarm(data.farmName))
+    //       .catch(error => console.error(error));
+    //   }, []);
+
+    const [responses, setResponses] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://your-api.com/responses/');
+                const data = await response.json();
+                setResponses(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const onsubmit = async (e) => {
         e.preventDefault()
-        const formValue = {
-            fieldName: values.fieldName,
-            altitude: values.altitude,
-            farm:values.farm
+        try {
+            const response = await axios.post('https://63bdda61e348cb076204aebb.mockapi.io/api/v1/createFarm', {
+                fieldName,
+                altitude,
+                farm
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
         }
+
+
         setSubmit(true)
-        setFormError(validate(formValue))
+        setFormError(validate(fieldName, altitude, farm))
         if (Object.keys(formError).length === 0 && isSubmit) {
             navigate("/sensorPage")
-            
 
         }
 
@@ -63,22 +86,27 @@ export default function CreateFieldModal({ toggleModal }) {
                     <form onSubmit={onsubmit}>
                         <div className="mb-3">
                             <label className="form-label">Farm</label>
-                            <img className='drop-down' src={dropdown} style={{ marginLeft:"-4rem" }} />
-                            <select className="form-control" name="farm" value={values.farm} onChange={onchange} placeholder="Select Farm" >
-                                <option>new</option>
-                                <option>another</option>
+                            <img className='drop-down' src={dropdown} style={{ marginLeft: "-4rem" }} />
+                            <select className="form-control" name="farm" value={farm} onChange={e => setFarm(e.target.value)} placeholder="Select Farm" >
+                                <option> <ul>
+                            {responses.map(response => (
+                                <li key={response.id}>{response.farmName}</li>
+                            ))}
+                        </ul></option>
+
                             </select>
                             {formError.farm && <p className='err'>{formError.farm}</p>}
                         </div>
+                       
                         <div className="mb-3">
                             <label className="form-label">Field Name</label>
-                            <input type="text" className="form-control" name="fieldName" value={values.fieldName} onChange={onchange} placeholder="Enter field name" />
+                            <input type="text" className="form-control" name="fieldName" value={fieldName} onChange={e => setFieldName(e.target.value)} placeholder="Enter field name" />
                             {formError.fieldName && <p className='err'>{formError.fieldName}</p>}
                         </div>
 
                         <div className="mb-3">
                             <label className="form-label">Altitude Above Sea Level</label>
-                            <input type="text" className="form-control" name='altitude' value={values.altitude} onChange={onchange} placeholder="Enter in meter" />
+                            <input type="text" className="form-control" name='altitude' value={altitude} onChange={e => setAltitude(e.target.value)} placeholder="Enter in meter" />
                             <button className='search'>
                                 <img src={search} />
                             </button>
@@ -86,7 +114,7 @@ export default function CreateFieldModal({ toggleModal }) {
 
                         </div>
 
-                        <button className='button' onClick={onsubmit}> CREATE NEW FARM</button>
+                        <button className='button'> CREATE NEW FARM</button>
                     </form>
                 </main>
             </div>

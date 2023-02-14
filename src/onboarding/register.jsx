@@ -13,9 +13,9 @@ import {createAuthUserWithEmailAndPassword} from '../util/firebase/firebase.util
 
 
 const Register = () => {
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,8 +23,7 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // if (!name || !email || !password) 
-    if (!phone)
+    if (!phone || !password) 
 
     {
       setError("All fields are required");
