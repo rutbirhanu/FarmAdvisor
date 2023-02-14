@@ -17,10 +17,12 @@ function SignIn() {
         }
     }, []);
 
+ 
+
     const handleSignIn = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch("/api/signin", {
+            const res = await fetch("https://63bdda61e348cb076204aebb.mockapi.io/api/v1/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ phone, password }),
@@ -29,7 +31,7 @@ function SignIn() {
             if (res.ok) {
                 localStorage.setItem("token", data.token);
                 setAuthenticated(true);
-                history.push("/profilePage"); // Redirect to profile page
+                history("/profilePage"); // Redirect to profile page
             } else {
                 setErrorMsg(data.message);
             }
@@ -39,19 +41,7 @@ function SignIn() {
         }
     };
 
-    const handleSignOut = () => {
-        localStorage.removeItem("token");
-        setAuthenticated(false);
-    };
-
-      if (authenticated) {
-        return (
-          <div>
-            <p>You are already signed in.</p>
-            <button onClick={handleSignOut}>Sign Out</button>
-          </div>
-        );
-}
+ 
 
 return (
     <div>
@@ -89,7 +79,6 @@ return (
                         <button className='button' style={{ marginLeft: '3em' }}>Sign In</button>
                     </div>
                 </form>
-
                 {errorMsg && <p>{errorMsg}</p>}
             </div>
         </div>
