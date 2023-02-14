@@ -1,4 +1,3 @@
-
 import CreateFarmPage from './homepage/createFarmPage';
 import LandingPage from './homepage/landingPage';
 import { Route, Routes } from "react-router-dom"
@@ -12,6 +11,7 @@ import Onboarding from './onboarding/onboarding1';
 import Register from './onboarding/register';
 import Verify from './onboarding/verify';
 import UserComponent from './components/user_profileComponent';
+import SignIn from './onboarding/signInPage';
 
 function App() {
 
@@ -21,12 +21,7 @@ function App() {
         <LandingPage img="https://img.freepik.com/free-vector/farmer-with-animal-farm-farm-scene-cartoon-style_1308-52911.jpg?w=2000" buttonLable="CREATE MY FIRST FARM"
           height={180} width={180} />
       } />
-<<<<<<< HEAD
       <Route path="/" element={<Onboarding />} />
-=======
-
-      <Route  class path="/"  className ='app'element={<Onboarding />} />
->>>>>>> 54b9c123508728e6d863c736ea890d99364a65d4
       <Route path="/register" element={<Register />} />
       <Route path="/verify" element={<Verify />} />
       <Route path="/createFarm" element={<CreateFarmPage />} />
@@ -37,7 +32,7 @@ function App() {
       <Route path="/alertPage" element={<PageWithAlertandField />} />
       <Route path="/statisticsPage" element={<PageWithStatistics />} />
       <Route path="/userdd" element={<UserComponent />} />
-      
+      <Route path="/signin" element={< SignIn/>} />
 
     </Routes>
 

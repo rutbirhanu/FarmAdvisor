@@ -11,9 +11,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -21,8 +21,7 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // if (!name || !email || !password) 
-    if (!phone)
+    if (!phone || !password) 
 
     {
       setError("All fields are required");
@@ -30,8 +29,8 @@ const Register = () => {
     }
     setIsLoading(true);
     try {
-      // const response = await axios.post("https://63bdda61e348cb076204aebb.mockapi.io/api/v1/users", { name, email, password });
-      const response= await axios.post('https:/localhost:7086/users/signup/',{  phone })
+      const response = await axios.post("https://63bdda61e348cb076204aebb.mockapi.io/api/v1/users", { phone, password });
+      // const response= await axios.post('https:/localhost:7086/users/signup/',{  phone })
       // check if response is successful
       if (response.status === 201) {
         console.log("Successfully saved to database");
@@ -89,7 +88,7 @@ const Register = () => {
             />
           </div>
 
-          {/* <div>
+          <div>
             <label htmlFor="password"></label>
             <input
               type="password"
@@ -98,7 +97,7 @@ const Register = () => {
               value={password}
               onChange={(e) => setpassword(e.target.value)}
             />
-          </div> */}
+          </div>
           {isLoading ? (
             <div>saving...</div>
           ) : (

@@ -17,19 +17,14 @@ export default function AppHeader() {
         </div>
         <div>
           <Link to="/statisticsPage">
-          <button className='btn'>
-              <img src={add} />
-          </button>
-              
-          </Link>
-          {/* <Link to="/userdd">
             <button className='btn'>
-              <img src={profile} />
-            </button></Link> */}
-            <span style={{fontSize:'1em',color:'white'} }>
-               <Popup trigger={<Icon.PersonFill />} position='left top'>           
-<UserComponent />
-</Popup></span>
+              <img src={add} />
+            </button>
+          </Link>
+          <span style={{ fontSize: '1em', color: 'white'}}>
+            <Popup trigger={<Icon.PersonFill />} position='left top'>
+              <UserComponent />
+            </Popup></span>
 
         </div>
       </div>
