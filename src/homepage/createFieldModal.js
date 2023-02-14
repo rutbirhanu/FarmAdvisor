@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import dropdown from "../Assets/image/dropdown.png"
 import search from "../Assets/image/search.png"
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
 
 export default function CreateFieldModal({ toggleModal }) {
     const navigate = useNavigate()
@@ -28,15 +27,7 @@ export default function CreateFieldModal({ toggleModal }) {
     const [altitude, setAltitude] = useState('');
 
     const [farm, setFarm] = useState({});
-    //   const { farmName } = useParams();
-
-    //   useEffect(() => {
-    //     fetch(`https://63bdda61e348cb076204aebb.mockapi.io/api/v1/createFarm/`)
-    //       .then(response => response.json())
-    //       .then(data => setFarm(data.farmName))
-    //       .catch(error => console.error(error));
-    //   }, []);
-
+    
     const [responses, setResponses] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -55,7 +46,7 @@ export default function CreateFieldModal({ toggleModal }) {
     const onsubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post('https://63bdda61e348cb076204aebb.mockapi.io/api/v1/createFarm', {
+            const response = await axios.post('https://63bdda61e348cb076204aebb.mockapi.io/api/v1/field', {
                 fieldName,
                 altitude,
                 farm

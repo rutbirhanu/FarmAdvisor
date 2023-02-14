@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../homepage/homepageStyle.css"
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,11 +8,6 @@ import axios from 'axios';
 
 export default function CreateFarmPage({ toggleModal }) {
     const navigate = useNavigate()
-
-    // const [values, setValues] = useState({
-    //     farmName: "",
-    //     location: ""
-    // })
 
     const [farmName, setfarmName] = useState('');
     const [location, setLocation] = useState('');
