@@ -9,6 +9,8 @@ import axios from "axios";
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {createAuthUserWithEmailAndPassword} from '../util/firebase/firebase.util'
+
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -31,12 +33,16 @@ const Register = () => {
     setIsLoading(true);
     try {
       // const response = await axios.post("https://63bdda61e348cb076204aebb.mockapi.io/api/v1/users", { name, email, password });
-      const response= await axios.post('https:/localhost:7086/users/signup/',{  phone })
-      // check if response is successful
-      if (response.status === 201) {
-        console.log("Successfully saved to database");
-        history("/");
-      }
+      // const response= await axios.post('https:/localhost:7086/users/signup/',{  phone })
+      // // check if response is successful
+      // if (response.status === 201) {
+      //   console.log("Successfully saved to database");
+      //   history("/");
+      // }
+      var user = await createAuthUserWithEmailAndPassword(phone, password);
+      // console.log(user.user.accessToken);
+      localStorage.setItem("token", user.user.accessToken);
+      history("/login");
     } catch (error) {
       setError("Error while Registering the user");
     }
@@ -89,7 +95,7 @@ const Register = () => {
             />
           </div>
 
-          {/* <div>
+          <div>
             <label htmlFor="password"></label>
             <input
               type="password"
@@ -98,7 +104,7 @@ const Register = () => {
               value={password}
               onChange={(e) => setpassword(e.target.value)}
             />
-          </div> */}
+          </div>
           {isLoading ? (
             <div>saving...</div>
           ) : (

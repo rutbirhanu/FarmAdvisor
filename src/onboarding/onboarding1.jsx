@@ -7,6 +7,7 @@ import logo from '../Assets/image/agino_logo.png'
 import TermsAndConditionsModal from './termsAndCond';
 
 const Onboarding =() =>{
+    // localStorage.removeItem('token')
     const [openModal, setModal] = useState(false);
 
     const toggleModal = () => {
@@ -41,7 +42,7 @@ return (
       </section>
       <button className='button'  onClick={toggleModal}> SIGN UP WITH AGINO</button>
       {openModal && <TermsAndConditionsModal toggleModal={toggleModal} />}
-      <div><span>Already have an accound?</span><Link to='#'>Log In</Link> </div>
+      <div><span>Already have an accound?</span><Link to='/login'>Log In</Link> </div>
     </div>
   </div>
 );
