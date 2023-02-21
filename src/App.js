@@ -24,9 +24,7 @@ function App() {
           <LandingPage img="https://img.freepik.com/free-vector/farmer-with-animal-farm-farm-scene-cartoon-style_1308-52911.jpg?w=2000" buttonLable="CREATE MY FIRST FARM"
             height={180} width={180} />
         } />
-        
         <Route path="/verify" element={<Verify />} />
-        
         <Route path="/createFarm" element={<CreateFarmPage />} />
         <Route path="/selectedFarmPage" element={<SelectedFarmPage />} />
         <Route path="/sensorPage" element={<SensorPage />} />
@@ -35,9 +33,7 @@ function App() {
         <Route path="/alertPage" element={<PageWithAlertandField />} />
         <Route path="/statisticsPage" element={<PageWithStatistics />} />
         <Route path="/userdd" element={<UserComponent />} />
-      
       </Route>
-        
       <Route  class path="/login"  className ='app'element={<Login />} />
       <Route  class path="/"  className ='app'element={<Onboarding />} />
       <Route path="/register" element={<Register />} />

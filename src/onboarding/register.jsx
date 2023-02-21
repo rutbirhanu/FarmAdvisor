@@ -14,7 +14,7 @@ import {createAuthUserWithEmailAndPassword} from '../util/firebase/firebase.util
 
 const Register = () => {
   // const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setphone] = useState("");
   // const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -84,13 +84,13 @@ const Register = () => {
           </div> */}
 
           <div>
-            <label htmlFor="phone"></label>
+            <label htmlFor="email"></label>
             <input
-              type="phone"
-              id="phone"
-              placeholder="Enter your phone"
+              type="email"
+              id="email"
+              placeholder="Enter your Email"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => setphone(e.target.value)}
             />
           </div>
 

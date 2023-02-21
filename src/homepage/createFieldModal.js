@@ -32,7 +32,7 @@ export default function CreateFieldModal({ toggleModal }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://your-api.com/responses/');
+                const response = await fetch('https://6297e3ac8d77ad6f750a59ff.mockapi.io/api/v1/farm');
                 const data = await response.json();
                 setResponses(data);
             } catch (error) {
@@ -55,17 +55,13 @@ export default function CreateFieldModal({ toggleModal }) {
         } catch (error) {
             console.error(error);
         }
-
-
         setSubmit(true)
         setFormError(validate(fieldName, altitude, farm))
         if (Object.keys(formError).length === 0 && isSubmit) {
             navigate("/sensorPage")
-
         }
 
     }
-
     return (
         <div className='farmMainDiv'>
             <div className='modalContainer'>
@@ -78,14 +74,15 @@ export default function CreateFieldModal({ toggleModal }) {
                         <div className="mb-3">
                             <label className="form-label">Farm</label>
                             <img className='drop-down' src={dropdown} style={{ marginLeft: "-4rem" }} />
-                            <select className="form-control" name="farm" value={farm} onChange={e => setFarm(e.target.value)} placeholder="Select Farm" >
-                                <option> <ul>
+                
+                            <select className="form-control" name="farm" value={farm} onChange={e => setFarm(e.target.value)} placeholder="Select Farm" >  
+                            <option  value="" disabled selected>Choose Farm</option>
                             {responses.map(response => (
-                                <li key={response.id}>{response.farmName}</li>
-                            ))}
-                        </ul></option>
 
-                            </select>
+                                <option key={response.id}>{response.farmName}</option>
+                            ))}
+                            </select> 
+
                             {formError.farm && <p className='err'>{formError.farm}</p>}
                         </div>
                        
@@ -102,7 +99,6 @@ export default function CreateFieldModal({ toggleModal }) {
                                 <img src={search} />
                             </button>
                             {formError.altitude && <p className='err'>{formError.altitude}</p>}
-
                         </div>
 
                         <button className='button'> CREATE NEW FARM</button>
