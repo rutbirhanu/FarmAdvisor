@@ -5,13 +5,13 @@ FarmAdvisor is a web application designed to assist farmers in making informed d
 
 ## Features
 Soil Humidity Analysis: Provides data on soil humidity levels.
-Crop Recommendations: Suggests the best crops to plant based on soil conditions and environmental factors.
+Crop Recommendations: Suggest the best crops to plant based on soil conditions and environmental factors.
 User-Friendly Interface: Simple and intuitive design, allowing farmers to easily navigate and access information.
 Responsive Design: Works seamlessly on both desktop and mobile devices.
 
 ## Technologies Used
 Frontend:
-React JS
-CSS (for styling)
-Axios (for API requests)
+-  <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React" width="20" height="20"/>  React JS
+- <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS" width="20" height="20"/>  CSS (for styling)
+-  <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="Axios (JavaScript)" width="20" height="20"/>  Axios (for API requests)
 
